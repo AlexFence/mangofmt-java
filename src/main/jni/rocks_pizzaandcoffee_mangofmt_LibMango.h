@@ -17,11 +17,35 @@ JNIEXPORT jlong JNICALL Java_rocks_pizzaandcoffee_mangofmt_LibMango_new_1mango_1
 
 /*
  * Class:     rocks_pizzaandcoffee_mangofmt_LibMango
+ * Method:    mangofile_free
+ * Signature: (J)V
+ */
+JNIEXPORT void JNICALL Java_rocks_pizzaandcoffee_mangofmt_LibMango_mangofile_1free
+  (JNIEnv *, jclass, jlong);
+
+/*
+ * Class:     rocks_pizzaandcoffee_mangofmt_LibMango
  * Method:    mangofile_save
  * Signature: (JLjava/lang/String;)I
  */
 JNIEXPORT jint JNICALL Java_rocks_pizzaandcoffee_mangofmt_LibMango_mangofile_1save
   (JNIEnv *, jclass, jlong, jstring);
+
+/*
+ * Class:     rocks_pizzaandcoffee_mangofmt_LibMango
+ * Method:    mangofile_add_image_by_path
+ * Signature: (JLjava/lang/String;)I
+ */
+JNIEXPORT jint JNICALL Java_rocks_pizzaandcoffee_mangofmt_LibMango_mangofile_1add_1image_1by_1path
+  (JNIEnv *, jclass, jlong, jstring);
+
+/*
+ * Class:     rocks_pizzaandcoffee_mangofmt_LibMango
+ * Method:    mangofile_image_count
+ * Signature: (J)I
+ */
+JNIEXPORT jint JNICALL Java_rocks_pizzaandcoffee_mangofmt_LibMango_mangofile_1image_1count
+  (JNIEnv *, jclass, jlong);
 
 #ifdef __cplusplus
 }

@@ -20,3 +20,30 @@ JNIEXPORT jint JNICALL Java_rocks_pizzaandcoffee_mangofmt_LibMango_mangofile_1sa
     return error_code;
 }
 
+JNIEXPORT void JNICALL Java_rocks_pizzaandcoffee_mangofmt_LibMango_mangofile_1free
+(JNIEnv *env, jclass class, jlong ptr) {
+    MangoFile f = (MangoFile) ptr;
+
+    mangofile_free(f);
+}
+
+JNIEXPORT jint JNICALL Java_rocks_pizzaandcoffee_mangofmt_LibMango_mangofile_1add_1image_1by_1path
+(JNIEnv *env, jclass class, jlong ptr, jstring jpath) {
+    MangoFile file = (MangoFile)ptr;
+
+    const char *path = (*env)->GetStringUTFChars(env, jpath, 0);
+
+    int error_code = mangofile_add_image_by_path(file, path);
+
+    (*env)->ReleaseStringUTFChars(env, jpath, path);
+
+    return error_code;
+}
+
+JNIEXPORT jint JNICALL Java_rocks_pizzaandcoffee_mangofmt_LibMango_mangofile_1image_1count
+(JNIEnv *env, jclass class, jlong ptr) {
+    MangoFile file = (MangoFile)ptr;
+
+    return mangofile_get_image_count(file);
+}
+
