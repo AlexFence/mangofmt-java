@@ -1,14 +1,15 @@
 package rocks.pizzaandcoffee.mangofmt;
 
-public  class LibMango {
-    static {
-        System.loadLibrary("mango-jni");
-    }
+import com.sun.jna.Library;
+import com.sun.jna.Native;
 
-    public static native long new_mango_file();
-    public static native void mangofile_free(long pointer);
-    public static native int mangofile_save(long pointer, String path);
-    public static native int mangofile_add_image_by_path(long pointer, String path);
+interface LibMango extends Library  {
+    LibMango INSTANCE = (LibMango) Native.loadLibrary( "mango", LibMango.class);
 
-    public static native int mangofile_image_count(long pointer);
+    long mangofile_new();
+    void mangofile_free(long pointer);
+    int mangofile_save(long pointer, String path);
+    int mangofile_add_image_by_path(long pointer, String path);
+
+    int mangofile_get_image_count(long pointer);
 }

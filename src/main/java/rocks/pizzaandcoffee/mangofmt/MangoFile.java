@@ -4,23 +4,23 @@ public class MangoFile implements AutoCloseable {
     private long pointer;
 
     MangoFile() {
-        this.pointer = LibMango.new_mango_file();
+        this.pointer = LibMango.INSTANCE.mangofile_new();
     }
 
     public void free() {
-        LibMango.mangofile_free(this.pointer);
+        LibMango.INSTANCE.mangofile_free(this.pointer);
     }
 
     public void save(String path) {
-        LibMango.mangofile_save(this.pointer, path);
+        LibMango.INSTANCE.mangofile_save(this.pointer, path);
     }
 
     public int addImageByPath(String path) {
-        return LibMango.mangofile_add_image_by_path(this.pointer, path);
+        return LibMango.INSTANCE.mangofile_add_image_by_path(this.pointer, path);
     }
 
     public int imageCount() {
-        return LibMango.mangofile_image_count(this.pointer);
+        return LibMango.INSTANCE.mangofile_get_image_count(this.pointer);
     }
 
     @Override

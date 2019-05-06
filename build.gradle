@@ -5,14 +5,18 @@ plugins {
 group ' rocks.pizzaandcoffee'
 version '0.1'
 
-sourceCompatibility = 1.10
+sourceCompatibility = 1.8
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-testImplementation(
+
+    // https://mvnrepository.com/artifact/net.java.dev.jna/jna
+    compile group: 'net.java.dev.jna', name: 'jna', version: '4.5.0'
+
+    testImplementation(
             'org.junit.jupiter:junit-jupiter-api:5.1.0'
     )
     testRuntimeOnly(
