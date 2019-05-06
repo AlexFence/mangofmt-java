@@ -34,9 +34,9 @@ class MangoFileTest {
     @Test
     void addImage() {
         MangoFile file = new MangoFile();
-        assertEquals(0, file.imageCount());
+        assertEquals(0, file.getImageCount());
         int error = file.addImageByPath("/home/fence/Pictures/sample.png");
         assertEquals(0, error);
-        assertEquals(1, file.imageCount());
+        assertEquals(1, file.getImageCount());
     }
 }
