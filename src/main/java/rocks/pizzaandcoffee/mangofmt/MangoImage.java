@@ -16,7 +16,7 @@ public class MangoImage {
     }
 
 
-    byte[] getImageData() {
+    public byte[] getImageData() {
         String base64 = LibMango.INSTANCE.mangoimg_get_base64_image_data(this.pointer);
         return Base64.getDecoder().decode(base64);
 
